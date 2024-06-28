@@ -1,0 +1,5 @@
+:host {
+    display: block;
+    background-color: #dbb788;
+    height: 85vh; /* Para que el fondo ocupe toda la altura de la pantalla */
+  }

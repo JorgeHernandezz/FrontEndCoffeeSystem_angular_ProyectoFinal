@@ -1,0 +1,22 @@
+:host {
+    display: block;
+    background-color: #dbb788;
+    height: 120vh; /* Para que el fondo ocupe toda la altura de la pantalla */
+  }
+  
+
+  .form-wrapper {
+    position: relative; /* Cambiado de absolute a relative para que los formularios se superpongan */
+    width: 100%;
+    height: auto; /* Ajustar altura según necesidad */
+  }
+  
+  .form-wrapper.hidden {
+    display: none; /* Ocultar formulario cuando no está activo */
+  }
+  
+  .card-body {
+    position: relative;
+    overflow: hidden;
+  }
+  

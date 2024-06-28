@@ -1,0 +1,45 @@
+<app-headerauth></app-headerauth>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="font-bold text-center mb-4">Restablecer Contraseña</h1>
+  
+            <!-- Mostrar solo campo de token al inicio -->
+            <form *ngIf="!mostrarFormularioPassword" (ngSubmit)="confirmarUsuario()">
+              <div class="mb-3">
+                <label for="token" class="form-label">Token</label>
+                <input id="token" [(ngModel)]="token" name="token" type="text" class="form-control" placeholder="Ingresa el token enviado a tu correo" [class.is-invalid]="estiloToken">
+                <div class="invalid-feedback" *ngIf="estiloToken">Token inválido.</div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mb-3">Confirmar Token</button>
+            </form>
+  
+            <!-- Mostrar formulario de cambio de contraseña después de verificar el token -->
+            <form *ngIf="mostrarFormularioPassword" (ngSubmit)="nuevoPassword()">
+              <div class="mb-3">
+                <label for="password" class="form-label">Nueva Contraseña</label>
+                <input id="password" [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="Ingresa tu nueva contraseña" [class.is-invalid]="estiloPassword">
+                <div class="invalid-feedback" *ngIf="estiloPassword">La contraseña debe tener al menos 6 caracteres.</div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPass" class="form-label">Confirmar Contraseña</label>
+                <input id="confirmPass" [(ngModel)]="confirmPass" name="confirmPass" type="password" class="form-control" placeholder="Confirma tu nueva contraseña" [class.is-invalid]="estiloConfirmPass">
+                <div class="invalid-feedback" *ngIf="estiloConfirmPass">Las contraseñas no coinciden.</div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mb-3">Cambiar Contraseña</button>
+            </form>
+  
+            <!-- Mostrar mensaje de respuesta -->
+            <div *ngIf="mensajeRespuesta" class="mb-3">
+              <div [class]="'alert alert-' + estiloRespuesta" role="alert">
+                {{ mensajeRespuesta }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

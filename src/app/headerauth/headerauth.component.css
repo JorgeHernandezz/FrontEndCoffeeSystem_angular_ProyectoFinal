@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro gris medio transparente */
+    color: white; /* Para que el texto sea visible en el fondo oscuro */
+    padding: 15px;
+  }
+  
+  .header-container {
+    width: 100%;
+    height: 60px; /* Ajusta la altura según tus necesidades */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  

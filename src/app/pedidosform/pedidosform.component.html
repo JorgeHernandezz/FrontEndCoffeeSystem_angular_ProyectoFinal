@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Actualizar Pedido</h1>
+    <form (ngSubmit)="actualizarPedido()">
+    
+      <div class="form-group">
+        <label>Nombre Pedido:</label>
+        <input type="text" class="form-control" [(ngModel)]="pedido.nombrePedido" name="nombrePedido" disabled>
+      </div>
+    
+      <div class="form-group">
+        <label>Total Artículos:</label>
+        <input type="number" class="form-control" [(ngModel)]="pedido.totalArticulos" name="totalArticulos" required>
+      </div>
+    
+      <div class="form-group">
+        <label>Costo Artículos $:</label>
+        <input type="number" class="form-control" [(ngModel)]="pedido.costoArticulos" name="costoArticulos" required>
+      </div>
+  
+    
+      <div class="form-group">
+        <label>Método Pago:</label>
+        <input type="text" class="form-control" [(ngModel)]="pedido.metodoPago" name="metodoPago" required disabled>
+      </div>
+  
+      <div class="form-group">
+        <label>Producto:</label>
+        <input type="text" class="form-control" [(ngModel)]="pedido.detallesPedido[0].producto_P" name="producto_P" required>
+      </div>
+    
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="actualizarPedido()">Actualizar</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

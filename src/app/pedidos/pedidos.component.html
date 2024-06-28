@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="mt-3"></div>
+<div class="container">
+  <div class="card border-primary text-center">
+    <div class="card-header text-primary">
+      <h1 class="card-title text-center text-primary">
+        {{ titulo }}
+        <button class="btn btn-outline-primary btn-sm ml-2" (click)="descargarPDF()">Descargar PDF</button>
+      </h1>
+    </div>
+    
+    <div class="card-body text-primary border-primary">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre Pedido</th>
+            <th>Total Artículos</th>
+            <th>Costo Artículos</th>
+            <th>Costo Total</th>
+            <th>Método Pago</th>
+            <th>Producto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of paginatedPedidos">
+            <td>{{ pedido.nombrePedido }}</td>
+            <td>{{ pedido.totalArticulos }}</td>
+            <td>${{ pedido.costoArticulos }}</td>
+            <td>${{ pedido.costoTotal }}</td>
+            <td>{{ pedido.metodoPago }}</td>
+            <td>{{ pedido.detallesPedido[0].producto_P }}</td>
+            <td>
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="abrirDialogActualizar(pedido)">
+                Actualizar
+              </button>
+              <button class="btn btn-outline-danger btn-sm" type="button" (click)="eliminarPedido(pedido.nombrePedido)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="cambiarPagina($event, currentPage - 1)">Anterior</a>
+        </li>
+        <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+          <a class="page-link" href="#" (click)="cambiarPagina($event, i + 1)">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" href="#" (click)="cambiarPagina($event, currentPage + 1)">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

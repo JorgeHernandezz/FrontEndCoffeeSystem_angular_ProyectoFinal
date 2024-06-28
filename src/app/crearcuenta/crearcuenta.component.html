@@ -1,0 +1,46 @@
+<app-headerauth></app-headerauth>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="font-bold text-center mb-4">Crear Cuenta</h1>
+          <form (ngSubmit)="validarEnvio()">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input id="nombre" [(ngModel)]="nombre" name="nombre" type="text" class="form-control" placeholder="Ingresa tu nombre" [class.is-invalid]="estiloNombre">
+              <div class="invalid-feedback" *ngIf="estiloNombre">Por favor ingresa tu nombre.</div>
+            </div>
+            <div class="mb-3">
+              <label for="apellido" class="form-label">Apellidos</label>
+              <input id="apellido" [(ngModel)]="apellido" name="apellido" type="text" class="form-control" placeholder="Ingresa tus apellidos" [class.is-invalid]="estiloApellido">
+              <div class="invalid-feedback" *ngIf="estiloApellido">Por favor ingresa tus apellidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input id="email" [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="Ingresa tu correo electrónico" [class.is-invalid]="estiloEmail">
+              <div class="invalid-feedback" *ngIf="estiloEmail">Por favor ingresa un correo válido.</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input id="password" [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="Ingresa tu contraseña" [class.is-invalid]="estiloPassword">
+              <div class="invalid-feedback" *ngIf="estiloPassword">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+              <input id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirma tu contraseña" [class.is-invalid]="estiloConfirmPass">
+              <div class="invalid-feedback" *ngIf="estiloConfirmPass">Las contraseñas no coinciden.</div>
+            </div>
+            <div *ngIf="mensajeRespuesta" class="mb-3">
+              <div [class]="'alert alert-' + estiloRespuesta" role="alert">
+                {{ mensajeRespuesta }}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Crear Cuenta</button>
+            <p class="text-center">¿Ya tienes cuenta? <a href="/iniciarsesion">Inicia sesión aquí</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

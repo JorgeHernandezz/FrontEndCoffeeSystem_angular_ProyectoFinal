@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Agregar Producto</h1>
+  <form (ngSubmit)="agregarProducto()">
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" class="form-control" [(ngModel)]="nuevoProducto.nombreProducto" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label>Descripción:</label>
+      <textarea class="form-control" [(ngModel)]="nuevoProducto.descrProducto" name="descripcion" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Existencia:</label>
+      <input type="number" class="form-control" [(ngModel)]="nuevoProducto.cantidadInv" name="existencia" required>
+    </div>
+
+    <div class="form-group">
+      <label>Precio $:</label>
+      <input type="number" class="form-control" [(ngModel)]="nuevoProducto.precioProducto" name="precio" required>
+    </div>
+
+    <div class="form-group">
+      <label>Descuento (%):</label>
+      <input type="number" class="form-control" [(ngModel)]="nuevoProducto.descuentoProducto" name="preciodescuento" required>
+    </div>
+
+    <div class="form-group">
+      <label>Categoría (Bebida, Alimento):</label>
+      <input type="text" class="form-control" [(ngModel)]="nuevoProducto.categoriaProducto" name="idcategoria" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Agregar</button>
+      <button type="button" class="btn btn-secondary" (click)="cerrarDialog()">Cancelar</button>
+    </div>
+  </form>
+</div>
