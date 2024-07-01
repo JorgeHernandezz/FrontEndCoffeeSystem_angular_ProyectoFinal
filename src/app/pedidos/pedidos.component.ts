@@ -34,7 +34,7 @@ export class PedidosComponent implements OnInit {
   }
 
   getPedidos(): void {
-    this.httpClient.get<any[]>('http://localhost:4000/api/pedidos/mostrarPedidos').subscribe({
+    this.httpClient.get<any[]>('https://backendcoffeesystem-proyectofinal.onrender.com/api/pedidos/mostrarPedidos').subscribe({
       next: (pedidos) => {
         this.listaPedidos = pedidos;
         this.totalPages = Math.ceil(this.listaPedidos.length / this.pageSize);
